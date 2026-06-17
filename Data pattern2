@@ -1,0 +1,75 @@
+To write a function which given two dates, checks whether the dates are
+exactly 1 month apart (e.g June 06 2011 & July 06 2011, Dec 15 2010 &
+Jan 15 2011), less than 1 month apart (e.g Mar 01 2011 & Mar 25 2011)
+
+#include<stdio.h>
+#include<stdlib.h>
+void check(int d1,int m1,int y1,int d2,int m2,int y2)
+{
+    if(y1>y2||y1==y2&&m1>m2||y1==y2&&m1==m2&&d1>d2)
+    {
+        int td,tm,ty;
+        td=d1;d1=d2,d2=td;
+        tm=m1;m1=m2,m2=tm;
+        ty=y1;y1=y2,y2=ty;
+    }
+    int monthgap=((y2-y1)*12)-(m2-m1);
+    if(monthgap==0){
+        printf("Less then one Month");
+    }
+    else if(monthgap>1){
+        printf("Grater then one Month");
+    }
+    else if(monthgap==1){
+        if(d2>d1)
+        {
+            printf("Grater then one Month");
+        }
+        else
+        {
+        printf("Less then one Month");
+        }
+        
+    }
+}
+int main(){
+    int d1,m1,y1,d2,m2,y2;
+    printf("Enter the data:");
+    printf("\ndate1:");
+    scanf("%d",&d1);
+    printf("\nMonth1:");
+    scanf("%d",&m1);
+    printf("\nyear1:");
+    scanf("%d",&y1);
+    printf("\nEnter the second data");
+    printf("\ndate2:");
+    scanf("%d",&d2);
+    printf("\nMonth2:");
+    scanf("%d",&m2);
+    printf("\nyear2:");
+    scanf("%d",&y2);
+    printf("\n%d-%d-%d",d1,m1,y1);
+    printf("\n%d-%d-%d\n",d2,m2,y2);
+    check(d1, m1,y1,d2,m2,y2);
+    
+}
+
+
+OUTPUT:
+Enter the data:
+date1:23
+
+Month1:7
+
+year1:2006
+
+Enter the second data
+date2:12
+
+Month2:8
+
+year2:2005
+
+23-7-2006
+12-8-2005
+Grater then one Month
