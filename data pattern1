@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void reverse(char str_l[],int start,int stop)
+{
+    while(start<stop)
+    {
+    char temp = str_l[start];
+    str_l[start]=str_l[stop];
+    str_l[stop]=temp;
+    start++;
+    stop--;
+    }
+}
+void reverse_word(char str_n[])
+{
+    int len=strlen(str_n);
+    reverse(str_n,0,len-1);
+    int word_start=0;
+    for(int i=0;i<=len;i++)
+    {
+        if(str_n[i]==' '||str_n[i]=='\0')
+        {
+            reverse(str_n,word_start,i-1);
+            word_start=i+1;
+        }
+    }
+}
+int main(){
+    char str[]="have a nice day";
+    printf("Before reverse:\n");
+    printf("%s\n",str);
+    reverse_word(str);
+    printf("After reverse:\n");
+    printf("%s\n",str);
+}
+
+
+OUTPUT:
+Before reverse:
+have a nice day
+After reverse:
+day nice a have
+
