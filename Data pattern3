@@ -1,0 +1,21 @@
+#include <stdio.h>
+int main()
+{
+    int x,y;
+    printf("Enter fist num:");
+    scanf("%d",&x);
+    printf("Enter secaond num:");
+    scanf("%d",&y);
+    if(x<0&&y<0)
+    {
+        printf("Both are negative");
+    }
+    else if((x^y)<0)
+    {
+        printf("there is a negative number ");
+    }
+    else
+    {
+        printf("There is no negative number");
+    }
+}
